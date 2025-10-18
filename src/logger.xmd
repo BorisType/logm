@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SPXML-FORM>
+
+<logger>
+	<id TYPE="integer"/>
+	<code TYPE="string"/>
+    <logLevel TYPE="string"/>
+    <logLevelVal TYPE="integer"/>
+
+	<trace PROPERTY="1" PARAM="dyValue" EXPR="
+		log_message(dyValue, 'TRACE  ', 0);
+	"/>
+	<debug PROPERTY="1" PARAM="dyValue" EXPR="
+		log_message(dyValue, 'DEBUG  ', 1);
+	"/>
+	<info PROPERTY="1" PARAM="dyValue" EXPR="
+		log_message(dyValue, 'INFO   ', 2);
+	"/>
+	<warn PROPERTY="1" PARAM="dyValue" EXPR="
+		log_message(dyValue, 'WARN   ', 3);
+	"/>
+	<error PROPERTY="1" PARAM="dyValue" EXPR="
+		log_message(dyValue, 'ERROR  ', 4);
+	"/>
+	<fatal PROPERTY="1" PARAM="dyValue" EXPR="
+		log_message(dyValue, 'FATAL  ', 5);
+	"/>
+
+    <log_message PROPERTY="1" PARAM="sMessage" PARAM="sLogLevel" PARAM="iLogLevel" EXPR="
+        if (iLogLevel &lt; logLevelVal) {
+            return;
+        }
+		LogEvent(code, (sLogLevel + '  ' + sMessage));
+		
+		if (iLogLevel &lt; logm.lib.ALERT_LEVEL.value) {
+			return;
+		}
+		alert('[' + code + ']  ' + sLogLevel + '  ' + sMessage);
+	"/>
+</logger>
+
+</SPXML-FORM>

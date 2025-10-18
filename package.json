@@ -1,0 +1,31 @@
+{
+  "name": "logm",
+  "version": "1.0.0-alpha.1",
+  "description": "",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "btc --include-non-ts-files",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "punkhomov",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BorisType/logm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BorisType/logm/issues"
+  },
+  "homepage": "https://github.com/BorisType/logm#readme",
+  "devDependencies": {
+    "@boristype/btc": "^0.0.1-alpha.4",
+    "@boristype/types": "^1.0.0-alpha.1"
+  },
+  "ws:root": "./wt/logm",
+  "ws:apiext": {
+    "name": "ModuleLogm",
+    "libs": [
+      "./init.xml"
+    ]
+  }
+}
